@@ -1,0 +1,118 @@
+/*Estilização Geral e Centralização */
+
+body {
+    /* Fonte do projeto */
+    font-family: 'Arial', sans-serif;
+    
+    /* Fundo */
+    margin: 0;
+    background-color: #f4f7f6;
+    
+    /* CENTRALIZAÇÃO: */
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    min-height: 100vh;
+}
+
+/* Principal */
+main {
+    
+    width: 90%; 
+    max-width: 420px;
+    padding: 30px;
+    
+    /* Aparência */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+    
+    
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+input[type="number"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+input[type="number"]:focus {
+    border-color: #007bff; 
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Botão Calcular */
+#btn-calcular {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 10px;
+}
+
+#btn-calcular:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+#btn-calcular:active {
+    transform: translateY(1px); /* Pequeno efeito de clique */
+}
+
+ /*  Resultados */
+
+p {
+    font-size: 1.1em;
+    color: #333;
+    padding: 5px 0;
+    border-top: 1px dashed #eee;
+}
+
+p:first-of-type {
+    margin-top: 20px;
+    border-top: none; 
+}
+
+/* Estilo para o valor numérico do IMC */
+#valor-imc {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #28a745;
+    margin-left: 10px;
+}
+
+/* Estilo para a classificação do IMC */
+#classificacao-imc {
+    font-style: italic;
+    font-weight: bold;
+    color: #ffc107;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff9e6;
+    border-radius: 8px;
+    border: 1px solid #ffeb85;
+}
