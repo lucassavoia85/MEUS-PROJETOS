@@ -37,6 +37,11 @@ header p {
 }
 
 /* --- Estilos do Formulário --- */
+
+form > div {
+    margin-bottom: 1rem; /* Adiciona espaço abaixo de cada campo do formulário */
+}
+
 .form-input {
     width: 100%;
     padding: 0.75rem; /* p-3 */

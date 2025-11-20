@@ -1,0 +1,50 @@
+[
+{
+ "nome": "Javascript",
+ "descricao": "Uma linguagem de programação",
+ "ano":1995,
+ "link":"https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"
+},
+{
+ "nome": "Python",
+ "descricao": "Uma linguagem de programação",
+ "ano":1991,
+ "link":"https://docs.python.org/pt-br/3.14/"
+ },
+ {
+ "nome": "C#",
+ "descricao": "Uma linguagem de programação",
+ "ano": 2000,
+ "link": "https://learn.microsoft.com/pt-br/dotnet/csharp/"
+ },
+ {
+ "nome": "Java",
+ "descricao": "Uma linguagem de programação",
+ "ano": 1995,
+ "link": "https://docs.oracle.com/en/java/javase/17/docs/api/"
+ },
+ {
+ "nome": "TypeScript",
+ "descricao": "Um superconjunto de JavaScript",
+ "ano": 2012,
+ "link": "https://www.typescriptlang.org/docs/"
+ },
+ {
+ "nome": "PHP",
+ "descricao": "Uma linguagem de script do lado do servidor",
+ "ano": 1995,
+ "link": "https://www.php.net/manual/pt_BR/"
+ },
+ {
+ "nome": "Go",
+ "descricao": "Uma linguagem de programação de código aberto",
+ "ano": 2009,
+ "link": "https://go.dev/doc/"
+ },
+ {
+ "nome": "Ruby",
+ "descricao": "Uma linguagem de programação dinâmica e de código aberto",
+ "ano": 1995,
+ "link": "https://www.ruby-lang.org/pt/documentation/"
+ }
+]

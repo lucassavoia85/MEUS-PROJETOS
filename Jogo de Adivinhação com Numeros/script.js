@@ -1,6 +1,6 @@
 // Variáveis globais de controle do jogo
 let secretNumber;
-const MAX_ATTEMPTS = 3; 
+const MAX_ATTEMPTS = 8; 
 let attemptsLeft;
 let gameActive = false; 
 
