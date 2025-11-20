@@ -1,0 +1,111 @@
+
+:root {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #f0f2f5; /* Um cinza bem claro para o fundo */
+    color: #1f2937; /* Cor de texto principal (cinza escuro) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 2rem 1rem;
+}
+
+main {
+    background-color: #ffffff; /* Fundo branco para o container do formulário */
+    padding: 2rem 2.5rem;
+    border-radius: 0.75rem; /* Bordas mais arredondadas */
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+header h1 {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    color: #111827; /* Quase preto para o título principal */
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #6b7280; /* Cinza médio para o parágrafo */
+    margin-bottom: 2rem;
+}
+
+/* --- Estilos do Formulário --- */
+.form-input {
+    width: 100%;
+    padding: 0.75rem; /* p-3 */
+    border-width: 1px; /* border */
+    border-style: solid; /* border */
+    border-color: #D1D5DB; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    transition-property: all; /* transition */
+    transition-duration: 150ms; /* duration-150 */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+}
+
+.form-input:focus {
+    outline: 2px solid transparent; /* focus:ring-blue-500 - reset default outline */
+    outline-offset: 2px; /* focus:ring-blue-500 */
+    box-shadow: 0 0 0 2px #3B82F6; /* focus:ring-blue-500 */
+    border-color: #3B82F6; /* focus:border-blue-500 */
+}
+
+.form-label {
+    display: block; /* block */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold, um pouco mais de peso */
+    color: #374151; /* text-gray-700, mantido */
+    margin-bottom: 0.25rem; /* mb-1 */
+}
+
+fieldset {
+    border: 1px solid #e5e7eb; /* Borda mais suave para o fieldset */
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 1.125rem; /* 18px */
+    color: #1f2937;
+    padding: 0 0.5rem; /* Espaçamento para não colar na borda */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background-color: #2563eb; /* Azul um pouco mais escuro */
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d4ed8; /* Azul mais escuro no hover */
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin-left: 0.5rem;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
