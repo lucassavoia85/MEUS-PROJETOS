@@ -1,26 +1,23 @@
+import { Cliente } from './classes.js';
+import { ListarClientes, CadastrarCliente, DeletarCliente } from './ultils.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('cadastro-form');
     const nameInput = document.getElementById('nome');
     const emailInput = document.getElementById('email');
     const clientList = document.getElementById('client-list');
     const submitButton = document.getElementById('submit-button');
-    
-    const apiUrl = 'https://crudcrud.com/api/44fe6b1c62fa4de6ad1dafa17fc2e63f';
 
-   
     async function fetchAndDisplayClients() {
         try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error(`Erro na requisição: ${response.statusText}`);
-            }
-            const clients = await response.json();
+            const clients = await ListarClientes();
             displayClients(clients);
         } catch (error) {
             console.error('Falha ao buscar clientes:', error);
-            clientList.innerHTML = '<p>Não foi possível carregar a lista de clientes. Verifique a URL da API.</p>';
+            clientList.innerHTML = '<p>Não foi possível carregar a lista de clientes.</p>';
         }
     }
+
     function displayClients(clients) {
         clientList.innerHTML = '<h2>Clientes Cadastrados</h2>';
         if (clients.length === 0) {
@@ -29,13 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         clients.forEach(client => {
+            const clientInstance = new Cliente(client.nome, client.email, client._id);
             const clientDiv = document.createElement('div');
             clientDiv.className = 'client-item';
-            clientDiv.setAttribute('data-id', client._id);
+            clientDiv.setAttribute('data-id', clientInstance._id);
             clientDiv.innerHTML = `
                 <div class="client-info">
-                    <strong>${client.name}</strong>
-                    <span>${client.email}</span>
+                    <strong>${clientInstance.nome}</strong>
+                    <span>${clientInstance.email}</span>
                 </div>
                 <button class="delete-btn">Excluir</button>
             `;
@@ -43,37 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
     /**
      * @param {Event} event
      */
     async function handleRegisterClient(event) {
         event.preventDefault();
 
-        const newClient = {
-            name: nameInput.value,
-            email: emailInput.value,
-        };
+        const newClient = new Cliente(nameInput.value, emailInput.value);
 
         submitButton.disabled = true;
         submitButton.textContent = 'Salvando...';
 
         try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newClient),
-            });
-
-            if (!response.ok) {
-                throw new Error('Falha ao cadastrar cliente.');
-            }
-            
+            await CadastrarCliente(newClient);
             form.reset();
             await fetchAndDisplayClients();
-
         } catch (error) {
-            console.error(error.message);
+            console.error('Falha ao cadastrar cliente.', error);
         } finally {
             submitButton.disabled = false;
             submitButton.textContent = 'Cadastrar';
@@ -83,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * @param {Event} event - O evento de clique.
      */
-     async function handleDeleteClient(event) {
+    async function handleDeleteClient(event) {
         if (!event.target.classList.contains('delete-btn')) {
             return;
         }
@@ -92,18 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const clientId = clientItem.getAttribute('data-id');
 
         try {
-            const response = await fetch(`${apiUrl}/${clientId}`, {
-                method: 'DELETE',
-            });
-
-            if (!response.ok) {
-                throw new Error('Falha ao excluir cliente.');
-            }
-            
+            await DeletarCliente(clientId);
             clientItem.remove();
 
         } catch (error) {
-            console.error(error.message);
+            console.error('Falha ao excluir cliente.', error);
         }
     }
 
